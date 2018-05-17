@@ -55,7 +55,5 @@ for NODE in "${CLUSTER_NODES[@]}"; do
   fi
 done
 
-/var/vcap/packages/mariadb/support-files/mysql.server stop --pid-file=/var/vcap/sys/run/mysql/mysql.pid > /dev/null
-return_code=$?
-echo 0
-exit ${return_code}
+echo "Drain Success" &>> "$LOG_DIR/drain.log"
+echo 0; exit 0 # drain success
